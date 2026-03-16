@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Toggle Language</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f2f2f2;
+            overflow: hidden;
+        }
+
+        .container{
+            position: relative;
+            max-width: 600px;
+            height: 500px;
+            padding: 50px;
+            color: #555;
+        }
+
+        .container .content{
+            display: none;
+            margin-top: 20px;;
+        }
+
+        .container .content.contentEnglish{
+            display: block;
+        }
+
+        .check{
+            position: relative;
+            width: 50px;
+        }
+
+        .check::before{
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 25px;
+            background: #333;
+            border-radius: 25px;
+
+        }
+
+        .check::after{
+            content: "";
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: #fff;
+            border-radius: 25px;
+            transition: 0.25s;
+            border: 2px solid #333;
+            box-sizing: border-box;
+        }
+
+        .check:checked::before{
+            background: #00a1ff;
+        }
+
+        .check:checked::after{
+            left: 25px;
+            border: 2px solid #00a1ff;
+        }
+
+        .check:checked ~.content.contentEnglish{
+            display: none;
+        }
+
+        .check:checked ~.content.contentPortuguese{
+            display: block;
+        }
+
+        .en{
+            color: #333;
+        }
+
+        .pt{
+            color: #00a1ff;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <span class="en">English</span>
+        <input type="checkbox" class="check">
+        <span class="pt">Portuguese</span>
+        <div class="content contentEnglish">
+            <h2>English</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
+                release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+                software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </div>
+
+        <div class="content contentPortuguese">
+            <h2>Portuguese</h2>
+            <p>Lorem ipsum dolor sit amet . Os operadores gráficos e tipográficos sabem disso bem, na realidade, todas as profissões que lidam com o universo da comunicação têm um relacionamento estável com essas palavras, mas o que é? Lorem ipsum é um texto fofo sem qualquer sentido. É uma seqüência de palavras latinas que, como estão posicionadas, não formem frases com um sentido completo, mas dão vida a um texto de teste útil para preencher espaços que irão Posteriormente serão ocupados a partir de textos ad hoc compostos por profissionais de comunicação.</p>
+        </div>
+
+    </div>
+    
+</body>
+
+<script>
+
+</script>
+</html>

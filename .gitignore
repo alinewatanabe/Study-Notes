@@ -36,6 +36,10 @@ MANIFEST
 pip-log.txt
 pip-delete-this-directory.txt
 
+# Crash / dump files
+*.stackdump
+*.out
+
 # Unit test / coverage reports
 htmlcov/
 .tox/

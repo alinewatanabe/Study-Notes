@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ================ UNICONS ================= -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+    <title>Aline Nunes Watanabe</title>
+
+    <style>
+        /* ================ GOOGLE FONTS ================ */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        :root{
+
+            --header-height: 3.69rem;
+
+            /* ======================= COLORS ======================= */
+
+            --background-color: hsl(0, 0%, 100%); /* #FFFFFF */
+            --background-color-second: hsl(0, 0%, 85%); /* #D9D9D9 */
+            --background-color-year-exp: 	hsl(0, 0%, 94%); /* #F0F0F0 */
+            --button-color-nav: hsl(0, 0%, 100%); /* #FFFFFF */
+            --text-body-color: hsl(0, 0%, 0%); /* #000000 */
+            --text-buttons-home: hsl(56, 42%, 93%); /* #F4F3E4 */
+            --text-buttons-nav: hsl(0, 0%, 35%); /* #585858 */
+            --text-subtitle-education: 	hsl(0, 0%, 61%); /* #9C9C9C */
+            --first-color:hsl(205, 48%, 48%); /* #4083B4 */
+
+
+            /* =============== FONT AND TYPOGRAPHY =============== */
+
+            --title-font: 'Poppins', sans-serif;
+            --body-font:'Montserrat', sans-serif;
+
+
+            /* ---------- 1rem = 16px ---------- */
+
+            --font-size-huge: 3.5rem; /* titles */
+            --font-size-large: 2.25rem; /* subtitle_home, name_skills, buttons_home */
+            --font-size-medium: 2rem; /* button_about, body_text_about, logo, info_contact */
+            --font-size-regular: 1.875rem; /* nav */
+            --font-size-small: 1.75rem; /* hi!, edu_exp, title_exp, body_text_exp, body_text_skills */
+            --font-size-smaller: 1.5rem; /* scroll, courses_exp */
+            --font-size-micro: 1.25rem; /* forms_contact*/
+
+
+            /* =================== FONT WEIGHT =================== */
+
+            --font-light: 300;
+            --font-regular: 400;
+            --font-medium: 500;
+            --font-semibold: 600;
+            --font-bold: 700;
+
+
+            /* ========= MARGENES BOTTOM (1rem = 16px) ========= */
+
+            --mb-0-25: 0.25rem;
+            --mb-0-50: 0.50rem;
+            --mb-0-75: 0.75rem;
+            --mb-1: 1rem;
+            --mb-1-5: 1.5rem;
+            --mb-2: 2rem;
+            --mb-2-5: 2.5rem;
+            --mb-3: 3rem;
+
+            /* ================== Z INDEX ================== */
+
+            --z-tooltip: 10;
+            --z-fixed: 100;
+            --z-modal: 1000;
+        }
+
+        /* ============== FONT SIZE FOR SMALL DEVICES ============== */
+
+        /* ================== VARIABLES PT/EN ================== */
+
+        /* ================== BUTTON PT/EN ================== */
+
+        /* ================== BASE ================== */
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        html{
+            scroll-behavior: smooth;
+        }
+
+        body{
+            margin: 0 0 var(--header-height) 0;
+            font-family: var(--body-font);
+            background-color: var(--background-color);
+            color: var(--text-body-color);
+        }
+
+        h1,h2,h3,h4{
+            color: var(--text-body-color);
+            font-weight: var(--font-bold);
+        }
+
+        ul{
+            list-style: none;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        img{
+            max-width: 100%;
+            height: auto;            
+        }
+
+        /* ================== REUSABLE CSS CLASSES ================== */
+
+        .section{
+            padding: 2rem 0 4rem;
+        }
+
+        .section_title{
+            font-size: var(--font-size-huge);
+        }
+
+        .section_subtitle{
+            display: block;
+            font-size: var(--font-size-large);
+            margin-bottom: var(--mb-3);
+        }
+
+        .section_title, .section_subtitle{
+            text-align: center;
+        }
+
+        /* ================== LAYOUT ================== */
+        .container{
+            max-width: 768px;
+            margin-left: var(--mb-1-5);
+            margin-right: var(--mb-1-5);
+        }
+
+        .grid{
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .header{
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: var(--z-fixed);
+            background-color: var(--background-color);
+        }
+
+        /* ================== NAV ================== */
+        .nav{
+            max-width: 968px;
+            height: var(--header-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+        .nav_logo, .nav_toggle{
+            color: var(--first-color);
+            font-weight: var(--font-bold);
+        }
+
+        .nav_logo{
+            font-family: var(--title-font);
+            font-size: var(--font-size-medium);
+            font-weight: var(--font-bold);
+        }
+
+        .nav_toggle{
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        .nav_toggle:hover{
+            color: var(--text-body-color);
+        }
+
+        .nav_menu{
+            font-family: var(--body-font);
+            font-size: var(--font-size-regular);
+            font-weight: var(--font-light);       
+        }
+
+        .nav_link{
+            color: var(--text-body-color)
+        }
+
+        @media screen and (max-width: 767px){
+            .nav_menu{
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background-color: var(--background-color);
+                padding: 2rem 1.5rem 4rem;
+                box-shadow: 0 -1px 4px rgba(0,0,0,0.15);
+                transition: 0.3s;
+            }          
+        }
+
+        .nav_list{
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        /* ================== SHOW MENU ================== */
+
+        /* ================== ACTIVE LINK ================== */
+
+        /* ================== HOME ================== */
+
+        /* ================== BUTTONS ================== */
+
+        /* ================== ABOUT ================== */
+
+        /* ================== EDUCATION ================== */
+
+        /* ================== EXPERIENCES ================== */
+
+        /* ================== SKILLS ================== */
+
+        /* ================== PROJECTS ================== */
+
+        /* ================== CONTACT ME ==================*/
+
+        /*  ================== ACTIVE MODAL ================== */
+    </style>
+</head>
+
+<body>
+    <!-- ================== HEADER ================== -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav_logo">Aline Watanabe</a>
+
+            <div class="nav_menu" id="nav_menu">
+                <ul class="nav_list grid">
+
+                    <li class="nav_item">
+                        <a href="#home" class="nav_link">Home</a>
+                    </li>
+
+                    <li class="nav_item">
+                        <a href="#about" class="nav_link">About</a>
+                    </li>
+
+                    <li class="nav_item">
+                        <a href="#experience" class="nav_link">Experience</a>
+                    </li>
+
+                    <li class="nav_item">
+                        <a href="#skills" class="nav_link">Skills</a>
+                    </li>
+
+                    <li class="nav_item">
+                        <a href="#projects" class="nav_link">Projects</a>
+                    </li>
+
+                    <li class="nav_item">
+                        <a href="#contact" class="nav_link">Contact Me</a>
+                    </li>       
+                </ul>
+                <i class="uil uil-times nav_close" id="nav-close"></i>
+            </div>
+
+            <div class="nav_btns">
+                <div class="nav_toggle" id="nav-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                      </svg>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- ================== MAIN ================== -->
+    <main class="main" id="main">
+
+    </main>
+
+
+    <!-- ================== FOOTER ================== -->
+    <footer class="footer">
+
+    </footer>
+
+    <!-- ================== SCROLL TOPO ================== -->
+    
+</body>
+
+<script>
+
+    /* ================== SWIPER JS ================== */
+
+    /* ================== MAIN JS ================== */
+
+</script>
+</html>

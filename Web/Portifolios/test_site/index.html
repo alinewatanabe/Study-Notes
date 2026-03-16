@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ------------------------ Unicons ------------------------ -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+    <title>Aline Nunes Watanabe</title>
+
+    <style>
+        /* ------------------------ Google Fonts -------------------- */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+        /* ----------------------- Variables Css -------------------- */
+        :root{
+
+            --header-hight: 3rem;
+
+            /* -------- Colors -------- */
+            --hue-color: 200; /*blue*/
+            --hue-color-second: 269; /*purple (hsl(269, 50%, 55%))*/
+
+            /* -------- Color Mode -------- */
+            --first-color: hsl(var(--hue-color), 54%, 50%);
+            --first-color-second: hsl(var(--hue-color), 54%, 50%);
+            --first-color-alt: hsl(var(--hue-color), 65%, 55%);
+            --first-color-lighter: hsl(var(--hue-color), 58%, 55%);
+            --title-color: hsl(var(--hue-color), 54%, 30%);
+            --text-color: hsl(var(--hue-color), 64%, 35%);
+            --text-color-light: hsl(var(--hue-color), 64%, 60%);
+            --input-color: hsl(var(--hue-color), 24%, 50%);
+            --backgound_nav-color: #2d2d2d;
+            --body-color: #272727;
+            --container-color: #fff;
+
+            /* Font and Typography */
+            --body-font: 'Poppins', sans-serif;
+
+            /* 1rem = 16px */
+            --big-font-size: 2rem;
+            --h1-font-size: 1.5rem;
+            --h2-font-size: 1.25rem;
+            --h3-font-siza: 1.125rem;
+            --normal-font-size: 0.938rem;
+            --small-font-size: 0.813rem;
+            --smaller-font-size: 0.75rem;
+
+            /* Font Weight */
+            --font-medium: 500;
+            --font-semi-bold: 600;
+
+            /* Margenes Bottom (1rem = 16px) */
+            --mb-0-25: .25rem;
+            --mb-0-5: .5rem;
+            --mb-0-75: .75rem;
+            --mb-1: 1rem;
+            --mb-1-5: 1.5rem;
+            --mb-2: 2rem;
+            --mb-2-5: 2.5rem;
+            --mb-3: 3rem;
+            
+            /* z index */
+            --z-tooltip: 10;
+            --z-fixed: 100;
+            --z-modal: 1000;
+        }
+
+        /* Font size for large devices */
+        @media screen and (min-width: 968px) {
+            :root{
+                --big-font-size: 3rem;
+                --h1-font-size: 2.25rem;
+                --h2-font-size: 1.5rem;
+                --h3-font-siza: 1.25rem;
+                --normal-font-size: 1rem;
+                --small-font-size: 0.875rem;
+                --smaller-font-size: 0.813rem;                    
+            }                
+        }
+
+        /* Variables Dark Theme */
+
+        /* Button Dark/Light */
+
+        /* Base */
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        html{
+            scroll-behavior: smooth;
+        }
+
+        body{
+            margin: 0 0 var(--header-hight) 0;
+            font-family: var(--body-font);
+            font-size: var(--normal-font-size);
+            background-color: var(--body-color);
+            color: var(--text-color)
+        }
+
+        h1,h2,h3,h4{
+            color: var(--title-color);
+            font-weight: var(--font-semi-bold);
+        }
+
+        ul{
+            list-style: none;     
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        img{
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Reusable CSS Classes */
+        .section{
+            padding: 2rem 0 4rem;
+        }
+
+        .section_title{
+            font-size: var(--h1-font-size);
+        }
+
+        .section_subtitle{
+            display: block;
+            font-size: var(--small-font-size);
+            margin-bottom: var(--mb-3);
+        }
+
+        .section_title, .section_subtitle{
+            text-align: center;
+        }
+
+        /* Layout */
+        .conteiner{
+            max-width: 768px;
+            margin-left: var(--mb-1-5);
+            margin-right: var(--mb-1-5);
+        }
+
+        .grid{
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .header{
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: var(--z-fixed);
+            background-color: var(--backgound_nav-color);
+        }
+
+        /* Nav */
+        .nav{
+            max-width: 968px;
+            height: var(--header-hight);
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+        }
+
+        .nav_logo,.nav_toggle{
+            color:var(--title-color);
+            font-weight: var(--font-medium);
+        }
+
+        .nav_toggle{
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        .nav_toggle:hover{
+            color: var(--container-color);
+        }
+
+        @media screen and (max-width: 767px) {
+            .nav_menu{
+                position: fixed;
+                top: -100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--body-color);
+                padding: 2rem 1.5rem 4rem;
+                box-shadow: 0 -1px 4px rgba(0,0,0,0.15);
+                border-radius: 1.5rem 1.5rem 0 0;
+                transition: 0.3s;
+            }
+        }
+
+        .nav_list{
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .nav_link{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: var(--small-font-size);
+            color: var(--title-color);
+            font-weight: var(--font-medium);
+        }
+
+        .nav_link:hover{
+            color: var(--container-color);
+        }
+
+        .nav_icon{
+            font-size: 1.2rem;
+        }
+
+        .nav.close{
+            position: absolute;
+            right: 1.3rem;
+            bottom:0.5rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--first-color)
+        }
+
+        .nav_close:hover{
+            color:var(--container-color)
+        }
+
+        /* Show Menu */
+        .show-menu{
+            top: 0;
+        }
+
+        /* Active Link */
+
+        /* Change background header */
+
+        /* == HOME == */
+
+        /* == BUTTONS == */
+
+        /* == ABOUT ==*/
+
+        /* == SKILLS == */
+
+        /* == QUALIFICATION (EXPERIENCE) ==*/
+
+        /* == SERVICES == */
+
+        /* Active Modal */
+
+    </style>
+</head>
+
+
+<body>
+    <!-- ================= Header ================= -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <img src="logo_header.png" alt="Logo ANW" class="nav_logo">
+
+            <div class="nav_btns">
+                <div class="nav_toggle" id="nav-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                      </svg>
+                </div>
+            </div>
+
+            <div class="nav_menu" id="nav-menu">
+                <i class="uil uil-times nav_close" id="nav-close"></i>
+                <ul class="nav_list grid">
+                    <li class="nav_item">
+                        <a href="#home" class="nav_link">
+                            <i class="uil uil-estate nav_icon"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="#about" class="nav_link">
+                            <i class="uil uil-user nav_icon"></i> About                            
+                        </a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="#experience" class="nav_link">
+                            <i class="uil uil-briefcase-alt nav_icon"></i> Experience                            
+                        </a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="#skills" class="nav_link">
+                            <i class="uil uil-brain nav_icon"></i> Skills                            
+                        </a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="#projects" class="nav_link">
+                            <i class="uil uil-setting nav_icon"></i> Projects                            
+                        </a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="#contact" class="nav_link">
+                            <i class="uil uil-message nav_icon"></i> Contact Me                        
+                        </a>
+                    </li>
+                </ul> 
+            </div>
+        </nav>
+    </header>
+
+    <!-- ================== Main ================== -->
+    <main class="main">
+        <!--HOME-->
+        <section class="home section" id="home">
+            <div class="home_container conainer grid">
+                <div class="home_content grid">
+                    <div class="home_social">
+                        <a href="" class="home_social-icon"></a>                        
+                    </div>
+                </div>               
+            </div>
+        </section>
+        <!--ABOUT-->
+        <!--EXPERIENCE (QUALIFICATION)-->
+        <!--SKILLS-->
+        <!--PROJECTS (PORTIFOLIO)-->
+        <!--CONTACT-->
+
+    </main>
+
+    <!-- ================= Footer ================= -->
+
+    <!-- =============== Scrool Top =============== -->
+
+    <!-- =============== Swiper JS ================ -->
+
+    <!-- ================ Main JS ================ -->
+    
+</body>
+
+
+<script>
+    /* == MENU SHOW AND HIDDEN == */
+    const navMenu = document.getElementById('nav-menu')
+    const navToggle = document.getElementById('nav-toggle')
+    const navClose = document.getElementById('nav-close')
+
+    /* == MENU SHOW == */
+    /* validate if constat exists */
+    if(navToggle){
+        navToggle.addEventListener('click', ()=>{
+            navMenu.classList.add('show-menu')
+        })
+    }
+
+    /* MENU HIDDEN */
+    /* validate if constant exists */
+    if(navClose){
+        navClose.addEventListener('click', ()=>{
+            navMenu.classList.remove('show-menu')
+        })
+    }
+
+
+    /* REMOVE MENU MOBILE */
+    const navLink = document.querySelectorAll('.nav_link')
+
+    function linkAction(){
+        const navMenu = document.getElementById('nav-menu')
+        navMenu.classList.remove('show-menu')
+    }
+
+    navLink.forEach(n => n.addEventListener('click', linkAction))
+
+    /* ACCORDION SKILLS */
+
+    /* QUALIFICATION TABS */
+
+    /* SERVICES MODAL*/
+
+</script>
+</html>

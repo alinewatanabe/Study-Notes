@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Language Switch Using JavaScript</title>
+
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f2f2f2;
+        }
+
+        .container{
+            position: relative;
+            max-width: 600px;
+            height: 500px;
+            padding: 50px;
+            color:#555;
+            text-align: center;
+        }
+
+        .langWrap{
+            background: #333;
+        }
+    
+        a{
+            text-transform: uppercase;
+            color: #fff;
+            text-decoration: none;
+            padding: 0 15px;
+            font-weight: bold;
+            background: #555656;
+            font-size: 18px;
+        }
+        
+        a.active{
+            background: #f21313;
+        }
+
+        .content{
+            margin-top: 20px;
+            font-family: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="langWrap">
+            <a href="#" language="english" class="active">EN</a>
+            <a href="#" language="portuguese">PT</a>
+        </div>       
+
+        <div class="content">
+            <h2 class="title">Hello World</h2>
+            <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </div>
+    </div>
+    
+</body>
+
+<script>
+    const langEl = document.querySelector('.langWrap');
+    const link = document.querySelectorAll('a');
+    const titleEl = document.querySelector('.title');
+    const descrEl = document.querySelector('.description');
+
+    link.forEach(el => {
+        el.addEventListener('click', () => {
+            langEl.querySelector('.active').classList.remove("active");
+            el.classList.add("active");
+
+            const attr = el.getAttribute('language');
+
+            titleEl.textContent = data[attr].title;
+            descrEl.textContent = data[attr].description
+        });
+    });
+
+
+    var data = {
+        "english":
+        {
+            "title":"Hello World",
+            "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        },
+        "portuguese":
+        {
+            "title":"Olá Mundo",
+            "description":"Lorem ipsum dolor sit amet . Os operadores gráficos e tipográficos sabem disso bem, na realidade, todas as profissões que lidam com o universo da comunicação têm um relacionamento estável com essas palavras, mas o que é? Lorem ipsum é um texto fofo sem qualquer sentido. É uma seqüência de palavras latinas que, como estão posicionadas, não formem frases com um sentido completo, mas dão vida a um texto de teste útil para preencher espaços que irão Posteriormente serão ocupados a partir de textos ad hoc compostos por profissionais de comunicação."
+        }
+    }
+
+
+</script>
+</html>
